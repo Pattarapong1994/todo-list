@@ -33,12 +33,16 @@ const editTodo = async(selectedTodo) =>{
 <template>
     <div v-if="isLoaded">
         Edit ID: {{ todoId }}
-        <div>
-            Name :
+        <div class="flex">
+            <div>
+               Name
+            </div> 
             <input type="text" v-model="todoStore.selectedTodo.name">
         </div>
-        <div>
-            Status :
+        <div class="flex">
+            <div>
+                Status 
+            </div>
             <select v-model="todoStore.selectedTodo.status" >
                 <option value="">Select Status</option>
                 <option v-for="status in todoStore.statuses" :value="status">
@@ -46,10 +50,12 @@ const editTodo = async(selectedTodo) =>{
                 </option>
             </select>
         </div>
-        <button @click="editTodo(todoStore.selectedTodo)">Edit</button>
-        <RouterLink :to="{name:'todo-list'}">
-            <button>Back</button>
-        </RouterLink>
+        <div>
+            <button @click="editTodo(todoStore.selectedTodo)">Edit</button>
+            <RouterLink :to="{name:'todo-list'}">
+                <button>Back</button>
+            </RouterLink>
+        </div>
     </div>
     <div v-else>
         <h2>
